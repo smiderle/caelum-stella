@@ -115,41 +115,55 @@ public class GeraPdf {
     private static void createTable( Document document ) throws DocumentException {
         PdfPTable table = new PdfPTable( 3 );
 
-        PdfPCell c1 = new PdfPCell( new Phrase( "Table Header 1" ) );
-        c1.setHorizontalAlignment( Element.ALIGN_CENTER );
+        PdfPCell th = new PdfPCell( new Phrase( "Sequencia" ) );
+        th.setHorizontalAlignment( Element.ALIGN_CENTER );
 
-        table.addCell( c1 );
+        table.addCell( th );
 
-        c1 = new PdfPCell( new Phrase( "Table Header 2" ) );
-        c1.setHorizontalAlignment( Element.ALIGN_CENTER );
-        table.addCell( c1 );
+        th = new PdfPCell( new Phrase( "Nome" ) );
+        th.setHorizontalAlignment( Element.ALIGN_CENTER );
+        table.addCell( th );
 
-        c1 = new PdfPCell( new Phrase( "Table Header 3" ) );
-        c1.setHorizontalAlignment( Element.ALIGN_CENTER );
-        table.addCell( c1 );
+        th = new PdfPCell( new Phrase( "Valor" ) );
+        th.setHorizontalAlignment( Element.ALIGN_CENTER );
+        table.addCell( th );
         table.setHeaderRows( 1 );
         table.setWidthPercentage( 100 );
 
 
-        table.addCell( "1.0" );
-        table.addCell( "1.1" );
-        table.addCell( "1.2" );
-        table.addCell( "2.1" );
-        table.addCell( "2.2" );
-        table.addCell( "2.3" );
+        table.addCell( "1" );
+        table.addCell( "Um nome qualquer" );
+        table.addCell( "R$ 14,53" );
+
+        table.addCell( "2" );
+        table.addCell( "Outro nome qualquer" );
+        table.addCell( "R$ 19,32" );
+
+        table.addCell( "2" );
+        table.addCell( "Outro nome qualquer" );
+        table.addCell( "R$ 19,32" );
+
+        table.addCell( "2" );
+        table.addCell( "Outro nome qualquer" );
+        table.addCell( "R$ 19,32" );
+
+        table.addCell( "2" );
+        table.addCell( "Outro nome qualquer" );
+        table.addCell( "R$ 19,32" );
 
 
-        c1 = new PdfPCell( new Phrase( "Botton Header 1" ) );
-        c1.setHorizontalAlignment( Element.ALIGN_CENTER );
-        table.addCell( c1 );
+        th = new PdfPCell( new Phrase( "Total: R$ 453,32" ) );
+        th.setColspan( 3 );
+        th.setHorizontalAlignment( Element.ALIGN_RIGHT);
+        table.addCell( th );
 
-        c1 = new PdfPCell( new Phrase( "" ) );
-        c1.setHorizontalAlignment( Element.ALIGN_CENTER );
-        table.addCell( c1 );
+        th = new PdfPCell( new Phrase( "" ) );
+        th.setHorizontalAlignment( Element.ALIGN_CENTER );
+        //table.addCell( th );
 
-        c1 = new PdfPCell( new Phrase( "Botton Header 3" ) );
-        c1.setHorizontalAlignment( Element.ALIGN_CENTER );
-        table.addCell( c1 );
+        th = new PdfPCell( new Phrase( "Total" ) );
+        th.setHorizontalAlignment( Element.ALIGN_CENTER );
+        //table.addCell( th );
 
 
         document.add( table );
@@ -173,7 +187,7 @@ public class GeraPdf {
         PdfPCell enderecoCell = new PdfPCell( enderecoPhrase );
         enderecoCell.setHorizontalAlignment( Element.ALIGN_LEFT );
         enderecoCell.setBorder( PdfPCell.NO_BORDER );
-        tableCliente.addCell(enderecoCell);
+        tableCliente.addCell( enderecoCell );
 
 
         Phrase fonePhrase = new Phrase( "Fone: (46) 3265-5656" );
@@ -181,8 +195,9 @@ public class GeraPdf {
         PdfPCell foneCell = new PdfPCell( fonePhrase );
         foneCell.setHorizontalAlignment( Element.ALIGN_LEFT );
         foneCell.setBorder( PdfPCell.NO_BORDER );
-        tableCliente.addCell(foneCell);
+        tableCliente.addCell( foneCell );
 
+        tableCliente.addCell( "Data: 04/11/2015 15:30 " );
 
         PdfPTable table = new PdfPTable( 2 );
 
